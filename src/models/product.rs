@@ -6,13 +6,13 @@ pub struct Product {
     pub id: Option<String>,
     pub name: Option<String>,
     pub description: Option<String>,
-    pub price: Option<u64>,
+    pub price: Option<f64>,
     pub currency: Option<String>,
     pub short_url: Option<String>,
     pub formatted_price: Option<String>,
     pub published: Option<bool>,
-    pub sales_count: Option<u64>,
-    pub sales_usd_cents: Option<u64>,
+    pub sales_count: Option<f64>,
+    pub sales_usd_cents: Option<f64>,
     pub url: Option<String>,
     pub custom_permalink: Option<String>,
 }
@@ -39,7 +39,7 @@ impl From<Product> for ProductRow {
                 .unwrap_or_default(),
             sales_count: p
                 .sales_count
-                .map(|c| c.to_string())
+                .map(|c| (c as u64).to_string())
                 .unwrap_or_default(),
             url: p.short_url.unwrap_or_default(),
         }
