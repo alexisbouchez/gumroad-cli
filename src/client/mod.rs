@@ -105,7 +105,13 @@ impl GumroadClient {
 
     async fn handle_response(resp: reqwest::Response) -> Result<serde_json::Value> {
         let status = resp.status();
-        let body: serde_json::Value = resp.json().await?;
+        let text = resp.text().await?;
+
+        let body: serde_json::Value = serde_json::from_str(&text).map_err(|_| {
+            GumroadError::Api(format!(
+                "Invalid JSON from API (HTTP {status}): {text}"
+            ))
+        })?;
 
         if !status.is_success() {
             let message = body["message"]
