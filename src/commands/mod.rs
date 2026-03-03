@@ -1,0 +1,13 @@
+pub mod auth;
+pub mod custom_fields;
+pub mod licenses;
+pub mod offer_codes;
+pub mod payouts;
+pub mod products;
+pub mod resource_subscriptions;
+pub mod sales;
+pub mod skus;
+pub mod subscribers;
+pub mod user;
+pub mod variant_categories;
+pub mod variants;

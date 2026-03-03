@@ -1,0 +1,12 @@
+pub mod custom_field;
+pub mod license;
+pub mod offer_code;
+pub mod payout;
+pub mod product;
+pub mod resource_subscription;
+pub mod sale;
+pub mod sku;
+pub mod subscriber;
+pub mod user;
+pub mod variant;
+pub mod variant_category;
